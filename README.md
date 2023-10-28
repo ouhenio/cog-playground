@@ -15,5 +15,5 @@ I'm trying to get familiar with Cog, so this repo serves as a backup of my learn
 
 ```bash
 cd nlp
-cog predict -i prompt "Hello!"
+cog predict -i prompt="Hello!" -i max_length=100
 ```
