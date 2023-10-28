@@ -1,5 +1,4 @@
-from typing import Any
-from cog import BasePredictor, Input
+from cog import BasePredictor, Input, ConcatenateIterator
 from transformers import AutoModelForCausalLM, AutoTokenizer, TextStreamer
 
 class Predictor(BasePredictor):
@@ -15,11 +14,13 @@ class Predictor(BasePredictor):
                 description="Max tokens to generate",
                 default=60
             )
-        ) -> Any:
+        ) -> ConcatenateIterator[str]:
         input = self.tokenizer([prompt], return_tensors="pt")
         streamer = TextStreamer(self.tokenizer)
-        return self.model.generate(
+
+        for token in self.model.generate(
             **input,
             streamer=streamer,
             max_new_tokens=max_length
-        )
+        ):
+            yield token
