@@ -2,9 +2,9 @@
 
 I'm trying to get familiar with Cog, so this repo serves as a backup of my learning journey.
 
-Stuff I would like to implement:
+## Todo
 
 - [x] Build a simple GPT inference pipeline.
-- [] Build a streaming GPT pipeline.
-- [] Implement a Stable Diffusion pipeline.
-    - [] Add tracing.
+- [ ] Build a streaming GPT pipeline.
+- [ ] Implement a Stable Diffusion pipeline.
+    - [ ] Add tracing and model warmup.
